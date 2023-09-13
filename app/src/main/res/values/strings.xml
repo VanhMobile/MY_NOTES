@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Note</string>
+    <string name="notes">My Notes</string>
+    <string name="notes_title">Note Title</string>
+    <string name="notes_sub_title">Note Sub Title</string>
+    <string name="notes_desc">Enter Note Here</string>
+    <string name="search">Search your notes</string>
+    <string name="date_time">Date Time</string>
+    <string name="note_title">Title</string>
+
+</resources>
