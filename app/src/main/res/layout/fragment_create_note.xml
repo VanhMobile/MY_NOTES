@@ -4,107 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DarkBlack"
+    android:background="@color/darkBlack"
     >
 
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
-    <ImageView
-        android:id="@+id/btnTick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_check"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
-    <EditText
-        android:id="@+id/edtNoteTitle"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/notes_title"
-        android:inputType="text"
-        android:background="@null"
-        android:textColorHint="@color/Gray"
-        android:textSize="@dimen/_14ssp"
-        android:fontFamily="@font/manrope_bold"
-        android:textColor="@color/white"
-        android:maxLines="1"
-        android:ellipsize="end"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
-
-    <TextView
-        android:id="@+id/tvDatTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/date_time"
-        android:textColor="@color/Gray"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNoteTitle"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"/>
-
-    <LinearLayout
-        android:id="@+id/lN1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDatTime">
-        <View
-            android:layout_width="@dimen/_4sdp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/_4sdp"
-            android:background="@color/blue"/>
-        <EditText
-            android:id="@+id/edtSubNoteTitle"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/notes_sub_title"
-            android:textSize="@dimen/_12ssp"
-            android:inputType="text"
-            android:background="@null"
-            android:fontFamily="@font/manrope_regular"
-            android:textColorHint="@color/Gray"
-            android:textColor="@color/white"
-            android:maxLines="1"
-            android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@+id/edtNoteTitle" />
-    </LinearLayout>
-    <EditText
-        android:id="@+id/edtDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/btnTick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <EditText
+                android:id="@+id/edtNoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/notes_title"
+                android:inputType="text"
+                android:background="@null"
+                android:textColorHint="@color/Gray"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/manrope_bold"
+                android:textColor="@color/white"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+            <TextView
+                android:id="@+id/tvDatTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_time"
+                android:textColor="@color/Gray"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtNoteTitle"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:id="@+id/lN1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDatTime">
+                <View
+                    android:id="@+id/colorNoteItem"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:background="@color/blue"/>
+                <EditText
+                    android:id="@+id/edtSubNoteTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/notes_sub_title"
+                    android:textSize="@dimen/_12ssp"
+                    android:inputType="text"
+                    android:background="@null"
+                    android:fontFamily="@font/manrope_regular"
+                    android:textColorHint="@color/Gray"
+                    android:textColor="@color/white"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintTop_toBottomOf="@+id/edtNoteTitle" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@+id/edtDesc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lN1" />
+            <EditText
+                android:id="@+id/edtDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/notes_desc"
+                android:textColorHint="@color/Gray"
+                android:textSize="@dimen/_12ssp"
+                android:background="@null"
+                android:fontFamily="@font/manrope_regular"
+                android:textColor="@color/white"
+                android:inputType="textMultiLine"
+                app:layout_constraintTop_toBottomOf="@+id/imgNote" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <View
+        android:id="@+id/showBottomSheetDialog"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/notes_desc"
-        android:textColorHint="@color/Gray"
-        android:textSize="@dimen/_12ssp"
-        android:background="@null"
-        android:fontFamily="@font/manrope_regular"
-        android:textColor="@color/white"
-        android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@+id/lN1" />
+        android:layout_marginBottom="@dimen/_10sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

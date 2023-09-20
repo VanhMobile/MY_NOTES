@@ -11,6 +11,7 @@
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_5sdp"
         android:padding="@dimen/_8sdp"
+        android:id="@+id/backgroundItem"
         android:layout_margin="@dimen/_5sdp"
         app:cardBackgroundColor="@color/lightBlack">
         <LinearLayout
@@ -39,6 +40,13 @@
                 android:textColor="@color/Gray"
                 android:ellipsize="end"
                 />
+            <ImageView
+                android:id="@+id/imgNote"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:layout_gravity="center_horizontal"/>
             <TextView
                 android:id="@+id/tvDateTime"
                 android:layout_width="match_parent"

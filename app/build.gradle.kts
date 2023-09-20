@@ -62,4 +62,6 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
+    implementation ("com.karumi:dexter:6.2.3")
 }

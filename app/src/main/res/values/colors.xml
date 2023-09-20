@@ -7,6 +7,13 @@
     <color name="blue">#4e33ff</color>
     <color name="accent">#03DAC5</color>
     <color name="lightBlack">#171c26</color>
-    <color name="DarkBlack">#10141c</color>
+    <color name="darkBlack">#10141c</color>
     <color name="primary">#171c26</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="salmon">#FA8072</color>
+    <color name="orange">#FFA500</color>
+    <color name="lawnGreen">#7CFC00</color>
+    <color name="LightSteelBlue">#B0C4DE</color>
+    <color name="LightCoral">#F08080</color>
+    <color name="Tomato">#FF6347</color>
 </resources>

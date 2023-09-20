@@ -7,5 +7,6 @@
     <string name="search">Search your notes</string>
     <string name="date_time">Date Time</string>
     <string name="note_title">Title</string>
+    <string name="add_img">Add Img</string>
 
 </resources>

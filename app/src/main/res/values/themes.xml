@@ -10,4 +10,15 @@
         <item name="android:editTextColor">@color/white</item>
         <item name="android:textColorHint">@color/Gray</item>
     </style>
+
+    <style name="BottomSheetDialog" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="BottomSheetDialogThem" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">
+            @style/BottomSheetDialog
+        </item>
+    </style>
 </resources>

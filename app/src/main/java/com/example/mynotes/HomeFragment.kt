@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment() {
         context?.let {
             listNotes = NotesDataBase.getDatabase(it).noteDao().getAll()
         }
-        notesAdapter = NotesAdapter(listNotes)
+        notesAdapter = NotesAdapter(listNotes,requireContext())
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.adapter = notesAdapter
