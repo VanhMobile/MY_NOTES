@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
                 android:text="@string/note_title"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp"
@@ -35,18 +36,24 @@
                 android:text="@string/notes_sub_title"
                 android:textSize="@dimen/_12ssp"
                 android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
                 android:paddingTop="@dimen/_3sdp"
                 android:fontFamily="@font/manrope_regular"
                 android:textColor="@color/Gray"
                 android:ellipsize="end"
                 />
-            <ImageView
-                android:id="@+id/imgNote"
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgNotes"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:riv_corner_radius_top_left="@dimen/_10sdp"
+                app:riv_corner_radius_top_right="@dimen/_10sdp"
+                />
             <TextView
                 android:id="@+id/tvDateTime"
                 android:layout_width="match_parent"
@@ -55,6 +62,7 @@
                 android:textSize="@dimen/_12ssp"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_3sdp"
+                android:paddingRight="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
                 android:fontFamily="@font/manrope_regular"
                 android:textColor="@color/Gray"

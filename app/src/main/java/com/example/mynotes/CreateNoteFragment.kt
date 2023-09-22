@@ -2,10 +2,9 @@ package com.example.mynotes
 
 import android.Manifest
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
-import android.nfc.cardemulation.HostNfcFService
 import android.os.Bundle
-import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -20,6 +19,7 @@ import androidx.core.content.ContextCompat
 import com.example.mynotes.dataBase.NotesDataBase
 import com.example.mynotes.databinding.FragmentCreateNoteBinding
 import com.example.mynotes.databinding.NotesBottomSheetBarBinding
+import com.example.mynotes.entities.Notes
 import com.example.mynotes.entities.NotesBuilder
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.karumi.dexter.Dexter
@@ -38,6 +38,8 @@ class CreateNoteFragment : BaseFragment() {
     private lateinit var currentDate: String
     private lateinit var imgUri: Uri
     private var uriString = ""
+    private var status = "save"
+    private lateinit var noteData: Notes
     private lateinit var noteBottomSheetDialog: BottomSheetDialog
     private var backgroundItemNote = "lightBlack"
     val someActivityForResult =
@@ -65,16 +67,56 @@ class CreateNoteFragment : BaseFragment() {
         val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
         currentDate = sdf.format(Date())
         binding.tvDatTime.text = currentDate
+        val bundle = arguments
+        bundle?.let {
+            noteData = bundle?.getSerializable("Note") as Notes
+            Log.e("note", noteData.title)
+            getNote(noteData)
+            status = "upData"
+        }
         binding.showBottomSheetDialog.setOnClickListener {
             noteBottomSheet()
         }
         binding.btnTick.setOnClickListener {
-            saveNote()
+            when(status){
+                "save" -> {
+                    saveNote()
+                }
+                "upData" -> {
+                    upDateNote()
+                }
+            }
         }
         binding.btnBack.setOnClickListener {
             replaceFragment(HomeFragment(),false)
         }
 
+    }
+
+    private fun upDateNote() {
+        noteData.title = binding.edtNoteTitle.text.toString().trim()
+        noteData.subTitle = binding.edtSubNoteTitle.text.toString().trim()
+        noteData.content = binding.edtDesc.text.toString().trim()
+        if (!uriString.isNullOrEmpty()){
+            noteData.imgPath = uriString
+        }
+        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+        currentDate = sdf.format(Date())
+        noteData.dateTime = currentDate
+        context?.let {
+            NotesDataBase.getDatabase(it).noteDao().upDataNote(noteData)
+        }
+        replaceFragment(HomeFragment(),false)
+    }
+
+    private fun getNote(note: Notes) {
+        binding.edtNoteTitle.setText(note.title)
+        binding.edtSubNoteTitle.setText(note.subTitle)
+        binding.edtDesc.setText(note.content)
+        note.imgPath?.let {
+            binding.imgNote.setImageBitmap(BitmapFactory.decodeFile(note.imgPath))
+        }
+        binding.tvDatTime.text = note.dateTime
     }
 
     private fun saveNote() {

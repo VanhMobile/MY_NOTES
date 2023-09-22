@@ -1,17 +1,15 @@
 package com.example.mynotes.adapter
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotes.R
 import com.example.mynotes.databinding.ItemRvNoteBinding
 import com.example.mynotes.entities.Notes
 
-class NotesAdapter(var listNotes: List<Notes>,val context: Context) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
+class NotesAdapter(var listNotes: List<Notes>,val click: ClickItemNote) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemRvNoteBinding)
         : RecyclerView.ViewHolder(binding.root) {
             fun getNotes(note: Notes){
@@ -37,20 +35,38 @@ class NotesAdapter(var listNotes: List<Notes>,val context: Context) : RecyclerVi
                 }
 
                 if (note.imgPath.isNotEmpty()){
-                    binding.imgNote.setImageBitmap(BitmapFactory.decodeFile(note.imgPath))
-                    binding.imgNote.visibility = View.VISIBLE
+                    val bitmap = BitmapFactory.decodeFile(note.imgPath)
+                    binding.imgNotes.setImageBitmap(bitmap)
+                    binding.imgNotes.visibility = View.VISIBLE
                 }else{
-                    binding.imgNote.visibility = View.GONE
+                    binding.imgNotes.visibility = View.GONE
+                }
+
+                binding.backgroundItem.setOnClickListener {
+                    click.upDataNote(note)
+                }
+
+                binding.backgroundItem.setOnLongClickListener {
+                    click.deleteNote(note)
+                    true
                 }
             }
     }
 
+    interface ClickItemNote{
+        fun deleteNote(note: Notes)
+        fun upDataNote(note: Notes)
+
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemRvNoteBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
 
-
+     fun setData(list: List<Notes>){
+        this.listNotes = list
+        notifyDataSetChanged()
+    }
     override fun getItemCount(): Int {
         listNotes?.let {
             return it.size
@@ -61,5 +77,9 @@ class NotesAdapter(var listNotes: List<Notes>,val context: Context) : RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = listNotes[position]
         holder.getNotes(note)
+
     }
 }
+
+
+

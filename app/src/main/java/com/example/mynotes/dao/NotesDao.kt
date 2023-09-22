@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.mynotes.entities.Notes
 
 @Dao
@@ -17,4 +18,10 @@ interface NotesDao {
 
     @Delete
     fun deleteNote(note: Notes)
+
+    @Update
+    fun upDataNote(note: Notes)
+
+    @Query("SELECT title FROM Notes")
+    fun getAllTitle(): List<String>
 }
